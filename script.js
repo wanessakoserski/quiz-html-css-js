@@ -1,7 +1,8 @@
 let scoreTotal = 0;
-var question = 1;
+let question = 1;
+let scoreValue = 1;
 
-function nextQuestion(scoreValue) {
+function nextQuestion() {
 	scoreTotal += scoreValue;
 	
 	let questionNow = document.getElementById("p" + question);
@@ -21,17 +22,22 @@ function nextQuestion(scoreValue) {
 }
 
 function restart(){
-/*
-	console.log("oiiii");
-	let questionNow = document.getElementById("p" + question);
-	questionNow.style.display = 'none';
+	if (question <= 10)
+	{
+		let questionLast = document.getElementById("p" + question);
+		questionLast.style.display = 'none';
+	}
+	alert(scoreTotal);
 	question = 1;
-	let questionNext = document.getElementById("p" + question);
-	questionNext.style.display = 'block';
 	scoreTotal = 0;
-	nextQuestion();
-*/
+	
+	let questionFirst = document.getElementById("p1");
+	questionFirst.style.display = 'block';
+	let buttonNext = document.querySelector("#next");
+	buttonNext.style.display = 'block';
+
 }
 
+
 document.querySelector("#next").addEventListener("click", nextQuestion);
-//document.querySelector("#restart").addEventListener("click", restart);
+document.querySelector("#restart").addEventListener("click", restart);
