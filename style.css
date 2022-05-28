@@ -25,20 +25,31 @@ nav {
 	padding: 10px;
 }
 
-#quiz-container {
+.quiz-container {
 	padding: 120px;
+	display: none;
 }
 
-#quiz-header h3 {
+.quiz-header h3 {
 	font-size: 2rem;
 }
 
-#quiz-header p {
+.quiz-header p {
 	margin: 30px 0px 50px;
 }
 
-#quiz-answer {
+.quiz-answer {
 	display: flex;
 	flex-direction: column;
 	gap: 15px;
+}
+
+.quiz-answer button {
+	padding: 10px;
+}
+
+#next {
+	padding: 15px;
+	float: right;
+	margin: 0 50px 20px 0;
 }
