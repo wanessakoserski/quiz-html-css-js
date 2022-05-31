@@ -4,6 +4,7 @@ var screenScore = document.querySelector("nav p span");
 var buttonNext = document.querySelector("#next");
 var buttonRestart = document.querySelector("#restart");
 var inputScore = document.querySelector("#score");
+var finalPage = document.getElementById("final-page");
 
 //Condition when start the page
 buttonNext.style.display = 'none';
@@ -28,7 +29,7 @@ function nextQuestion()
 	if (question > 10)
 	{	
 		buttonNext.style.display = 'none';
-		document.getElementById("final-page").style.display = 'block';
+		finalPage.style.display = 'block';
 		final();
 	}
 	else
@@ -36,6 +37,26 @@ function nextQuestion()
 		const questionNext = document.getElementById("p" + question);
 		questionNext.style.display = 'block';
 		buttonNext.disabled = true;	
+	}
+}
+
+
+function resetVariable()
+{
+	question = 1;
+	scoreTotal = 0;
+	screenScore.innerText = scoreTotal;
+}
+
+
+function buttonsInitialState()
+{
+	const allButtons = document.querySelectorAll(".quiz-answer button");
+	
+	for (let i = 0; i < allButtons.length; i++)
+	{
+		allButtons[i].style.backgroundColor = "white";
+		allButtons[i].disabled = false;
 	}
 }
 
@@ -48,25 +69,16 @@ function restart()
 		questionLast.style.display = 'none';
 	}
 	
-	//Reset variables
-	question = 1;
-	scoreTotal = 0;
-	screenScore.innerText = scoreTotal;
+	resetVariable();	
+	buttonsInitialState();
 	
 	//Return to the first question
 	const questionFirst = document.getElementById("p1");
 	questionFirst.style.display = 'block';
-	let buttonNext = document.querySelector("#next");
+	//let buttonNext = document.querySelector("#next");
 	buttonNext.style.display = 'block';
 	
-	//Return the buttons to the initial state
-	const allButtons = document.querySelectorAll(".quiz-answer button");
 	
-	for (let i = 0; i < allButtons.length; i++)
-	{
-		allButtons[i].style.backgroundColor = "white";
-		allButtons[i].disabled = false;
-	}
 }
 
 
@@ -107,8 +119,19 @@ function start()
 }
 
 
+function returnHome()
+{	
+	resetVariable();
+	buttonsInitialState();
+	finalPage.style.display = 'none';
+	document.getElementById("p0").style.display = 'block';
+	
+}
+
 //Declare events in HTML elements
 document.getElementById("start").addEventListener("click", start);
+
+document.getElementById("return").addEventListener("click", returnHome);
 
 buttonNext.addEventListener("click", nextQuestion);
 
