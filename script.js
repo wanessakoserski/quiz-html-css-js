@@ -75,10 +75,7 @@ function restart()
 	//Return to the first question
 	const questionFirst = document.getElementById("p1");
 	questionFirst.style.display = 'block';
-	//let buttonNext = document.querySelector("#next");
 	buttonNext.style.display = 'block';
-	
-	
 }
 
 
@@ -115,6 +112,7 @@ function start()
 	buttonNext.style.display = 'block';
 	buttonRestart.style.display = 'block';
 	inputScore.style.display = 'block';
+	question = 0;
 	nextQuestion();
 }
 
@@ -125,13 +123,20 @@ function returnHome()
 	buttonsInitialState();
 	finalPage.style.display = 'none';
 	document.getElementById("p0").style.display = 'block';
-	
+}
+
+
+function addPerson()
+{
+	document.getElementById("person");
 }
 
 //Declare events in HTML elements
 document.getElementById("start").addEventListener("click", start);
 
 document.getElementById("return").addEventListener("click", returnHome);
+
+document.getElementById("add").addEventListener("click", addPerson);
 
 buttonNext.addEventListener("click", nextQuestion);
 

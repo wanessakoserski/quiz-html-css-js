@@ -22,12 +22,23 @@ nav {
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-around;
-	padding: 10px;
+	padding: 30px;
+	background-color: black;
+}
+
+#restart {
+	padding: 15px;
 }
 
 .quiz-container {
 	padding: 120px;
 	display: none;
+	background-color: black;
+}
+
+.quiz-header {
+	background-color: gray;
+	padding: 50px;
 }
 
 .quiz-header h3 {
@@ -42,6 +53,8 @@ nav {
 	display: flex;
 	flex-direction: column;
 	gap: 15px;
+	background-color: gray;
+	padding: 50px;
 }
 
 .quiz-answer button {
