@@ -58,7 +58,7 @@ function verify()
 		}
 		else
 		{
-			buttons[i].style.backgroundColor = "red";
+			buttons[i].style.backgroundColor = "none";
 		}		
 	}
 	
