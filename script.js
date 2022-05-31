@@ -1,10 +1,22 @@
 var scoreTotal = 0;
-var question = 1;
+var question = 0;
 var screenScore = document.querySelector("nav p span");
 var buttonNext = document.querySelector("#next");
+var buttonRestart = document.querySelector("#restart");
+var inputScore = document.querySelector("#score");
 
 //Condition when start the page
-buttonNext.disabled = true;
+buttonNext.style.display = 'none';
+buttonRestart.style.display = 'none';
+inputScore.style.display = 'none';
+
+function start()
+{
+	buttonNext.style.display = 'block';
+	buttonRestart.style.display = 'block';
+	inputScore.style.display = 'block';
+	nextQuestion();
+}
 
 function nextQuestion() 
 {	
@@ -83,9 +95,11 @@ function verify(event)
 
 
 //Declare events in HTML elements
+document.getElementById("start").addEventListener("click", start);
+
 buttonNext.addEventListener("click", nextQuestion);
 
-document.querySelector("#restart").addEventListener("click", restart);
+buttonRestart.addEventListener("click", restart);
 
 const answerButtons = document.querySelectorAll(".quiz-answer button");
 for (let i = 0; i < answerButtons.length; i++)
