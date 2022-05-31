@@ -27,7 +27,7 @@ function restart(){
 		let questionLast = document.getElementById("p" + question);
 		questionLast.style.display = 'none';
 	}
-	alert(scoreTotal);
+	//alert(scoreTotal);
 	question = 1;
 	scoreTotal = 0;
 	
