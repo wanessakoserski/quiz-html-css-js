@@ -1,22 +1,27 @@
 var scoreTotal = 0;
 var question = 1;
 var screenScore = document.querySelector("nav p span");
+var buttonNext = document.querySelector("#next");
+
+//Condition when start the page
+buttonNext.disabled = true;
 
 function nextQuestion() 
 {	
 	let questionNow = document.getElementById("p" + question);
-	questionNow.style.display = 'none';
+	questionNow.style.display = 'none';	
 	
 	question++;
 	if (question > 10)
-	{
-		const buttonNext = document.querySelector("#next");
+	{	
 		buttonNext.style.display = 'none';
+		//Inserir função para declarar o que acontece no final do quiz
 	}
 	else
 	{
 		const questionNext = document.getElementById("p" + question);
 		questionNext.style.display = 'block';
+		buttonNext.disabled = true;	
 	}
 }
 
@@ -27,19 +32,19 @@ function restart()
 		let questionLast = document.getElementById("p" + question);
 		questionLast.style.display = 'none';
 	}
-<<<<<<< HEAD
-	//alert(scoreTotal);
-=======
->>>>>>> 9faac0f67becb0593ef95ca4b6ae96446b2e0cbc
+	
+	//Reset variables
 	question = 1;
 	scoreTotal = 0;
 	screenScore.innerText = scoreTotal;
 	
-	let questionFirst = document.getElementById("p1");
+	//Return to the first question
+	const questionFirst = document.getElementById("p1");
 	questionFirst.style.display = 'block';
 	let buttonNext = document.querySelector("#next");
 	buttonNext.style.display = 'block';
 	
+	//Return the buttons to the initial state
 	const allButtons = document.querySelectorAll(".quiz-answer button");
 	
 	for (let i = 0; i < allButtons.length; i++)
@@ -51,7 +56,9 @@ function restart()
 
 function verify()
 {
-	buttons = document.querySelectorAll("#p" + question + " .quiz-answer button");
+	if 
+	//Select only current page buttons
+	const buttons = document.querySelectorAll("#p" + question + " .quiz-answer button");
 	for (let i = 0; i < buttons.length; i++)
 	{
 		buttons[i].disabled = true;
@@ -66,11 +73,13 @@ function verify()
 		}		
 	}
 	
+	buttonNext.disabled = false;
 	screenScore.innerText = scoreTotal;
 }
 
 
-document.querySelector("#next").addEventListener("click", nextQuestion);
+//Declare events in HTML elements
+buttonNext.addEventListener("click", nextQuestion);
 
 document.querySelector("#restart").addEventListener("click", restart);
 
