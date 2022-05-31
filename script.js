@@ -10,13 +10,14 @@ buttonNext.style.display = 'none';
 buttonRestart.style.display = 'none';
 inputScore.style.display = 'none';
 
-function start()
+
+function final()
 {
-	buttonNext.style.display = 'block';
-	buttonRestart.style.display = 'block';
-	inputScore.style.display = 'block';
-	nextQuestion();
+	buttonNext.style.display = 'none';
+	buttonRestart.style.display = 'none';
+	inputScore.style.display = 'none';
 }
+
 
 function nextQuestion() 
 {	
@@ -27,7 +28,8 @@ function nextQuestion()
 	if (question > 10)
 	{	
 		buttonNext.style.display = 'none';
-		//Inserir função para declarar o que acontece no final do quiz
+		document.getElementById("final-page").style.display = 'block';
+		final();
 	}
 	else
 	{
@@ -36,6 +38,7 @@ function nextQuestion()
 		buttonNext.disabled = true;	
 	}
 }
+
 
 function restart()
 {
@@ -66,6 +69,7 @@ function restart()
 	}
 }
 
+
 function verify(event)
 {
 	//Select only current page buttons
@@ -91,6 +95,15 @@ function verify(event)
 
 	buttonNext.disabled = false;
 	screenScore.innerText = scoreTotal;
+}
+
+
+function start()
+{
+	buttonNext.style.display = 'block';
+	buttonRestart.style.display = 'block';
+	inputScore.style.display = 'block';
+	nextQuestion();
 }
 
 
