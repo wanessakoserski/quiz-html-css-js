@@ -54,9 +54,8 @@ function restart()
 	}
 }
 
-function verify()
+function verify(event)
 {
-	if 
 	//Select only current page buttons
 	const buttons = document.querySelectorAll("#p" + question + " .quiz-answer button");
 	for (let i = 0; i < buttons.length; i++)
@@ -64,15 +63,20 @@ function verify()
 		buttons[i].disabled = true;
 		if (buttons[i].value == "true")
 		{
-			buttons[i].style.backgroundColor = "green";
-			scoreTotal += 20;
-		}
-		else
-		{
-			buttons[i].style.backgroundColor = "red";
-		}		
+				buttons[i].style.backgroundColor = "green";
+		}	
 	}
-	
+		
+	if (event.target.value == "true")
+	{
+		scoreTotal += 20;
+	}
+	else 
+	{
+		
+		event.target.style.backgroundColor = "red";
+	}
+
 	buttonNext.disabled = false;
 	screenScore.innerText = scoreTotal;
 }
