@@ -71,6 +71,8 @@ function restart()
 	
 	resetVariable();	
 	buttonsInitialState();
+	randomQuestion();
+	
 	
 	//Return to the first question
 	const questionFirst = document.getElementById("p1");
@@ -136,8 +138,14 @@ function addPerson()
 function randomQuestion()
 {
 	const numberOfQuestions = 10;
-	const container = document.querySelectorAll(".quiz-container");
+	const container = document.querySelectorAll(".quiz-container");	
 	let randomNumbers = new Array();
+	
+	// reset id
+	for (let i = 0; i < container.length; i++)
+	{
+		container[i].removeAttribute("id");
+	}	
 	
 	// Make random container index without repetition
 	do
