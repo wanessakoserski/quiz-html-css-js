@@ -10,7 +10,7 @@ var finalPage = document.getElementById("final-page");
 buttonNext.style.display = 'none';
 buttonRestart.style.display = 'none';
 inputScore.style.display = 'none';
-
+randomQuestion();
 
 function final()
 {
@@ -120,6 +120,7 @@ function start()
 function returnHome()
 {	
 	resetVariable();
+	randomQuestion()
 	buttonsInitialState();
 	finalPage.style.display = 'none';
 	document.getElementById("p0").style.display = 'block';
@@ -130,6 +131,43 @@ function addPerson()
 {
 	document.getElementById("person");
 }
+
+
+function randomQuestion()
+{
+	const numberOfQuestions = 10;
+	const container = document.querySelectorAll(".quiz-container");
+	let randomNumbers = new Array();
+	
+	// Make random container index without repetition
+	do
+	{
+		let numRandom = Math.floor(Math.random() * container.length);
+		let repetition = 0;
+	
+		for (let i = 0; i < randomNumbers.length; i++)
+		{
+			if (numRandom == randomNumbers[i])
+			{
+				repetition++;
+			}
+		}
+		
+		if (repetition == 0)
+		{
+			randomNumbers.push(numRandom);
+		}
+	}
+	while (randomNumbers.length < container.length);
+	
+	// shuffle the questions positions
+	for (let i = 0; i < numberOfQuestions; i++)
+	{
+		let questionIndex = i + 1;
+		container[randomNumbers[i]].id = "p" + questionIndex;
+	}
+}
+
 
 //Declare events in HTML elements
 document.getElementById("start").addEventListener("click", start);
