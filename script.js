@@ -3,8 +3,10 @@ var question = 0;
 var screenScore = document.querySelector("nav p span");
 var buttonNext = document.querySelector("#next");
 var buttonRestart = document.querySelector("#restart");
+var returnButtons = document.getElementsByClassName("return");
 var inputScore = document.querySelector("#score");
 var finalPage = document.getElementById("final-page");
+var container = document.querySelectorAll(".quiz-container");
 
 //Condition when start the page
 buttonNext.style.display = 'none';
@@ -122,10 +124,16 @@ function start()
 function returnHome()
 {	
 	resetVariable();
-	randomQuestion()
+	randomQuestion();
 	buttonsInitialState();
+	final();
 	finalPage.style.display = 'none';
 	document.getElementById("p0").style.display = 'block';
+	
+	for (let i = 0; i < container.length; i++)
+	{
+		container[i].style.display = 'none';
+	}
 }
 
 
@@ -137,8 +145,7 @@ function addPerson()
 
 function randomQuestion()
 {
-	const numberOfQuestions = 10;
-	const container = document.querySelectorAll(".quiz-container");	
+	const numberOfQuestions = 10;	
 	let randomNumbers = new Array();
 	
 	// reset id
@@ -180,13 +187,16 @@ function randomQuestion()
 //Declare events in HTML elements
 document.getElementById("start").addEventListener("click", start);
 
-document.getElementById("return").addEventListener("click", returnHome);
-
 document.getElementById("add").addEventListener("click", addPerson);
 
 buttonNext.addEventListener("click", nextQuestion);
 
 buttonRestart.addEventListener("click", restart);
+
+for (let i = 0; i < returnButtons.length; i++)
+{
+	returnButtons[i].addEventListener("click", returnHome);
+}
 
 const answerButtons = document.querySelectorAll(".quiz-answer button");
 for (let i = 0; i < answerButtons.length; i++)
