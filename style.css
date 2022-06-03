@@ -1,20 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
+    font-family: 'Nova Square', cursive;
 }
 
 body {
 	font-family: sans-serif;
 	color: white;
-	background-color: gray;
+	background-color: rgb(29, 26, 26);
 }
 
 h1 {
 	text-align: center;
-	padding: 50px;
-	font-size: 5rem;
+	padding: 45px;
+	margin-bottom: 2rem;
+	color: #fff;
+	font-size: 5.4rem;
+	
+}
+
+button {
+	font-size: 20px;
+	padding: 12px;
+	background-color: #ddd;
+	border: 2px solid white;
+	border-radius: 20px;
+}
+
+button:hover {
+	cursor: pointer;
+	transform: scale(1.04);
+	transform: transform 100ms;
+	
+}
+
+button[disabled]:hover {
+	cursor: not-allowed;
+	box-shadow: none;
+	transform: none;
 }
 
 nav {
@@ -23,7 +50,7 @@ nav {
 	align-items: center;
 	justify-content: space-around;
 	padding: 30px;
-	background-color: black;
+	background-color: #333;
 }
 
 #restart {
@@ -66,4 +93,17 @@ nav {
 	padding: 15px;
 	float: right;
 	margin: 0 50px 20px 0;
+}
+
+input {
+	margin: 1rem;
+	width: 20rem;
+	padding: 1.5rem;
+	font-size: 1.8rem;
+	border: none;
+	box-shadow: 0 0.1rem 1.4rem 0 gray;
+}
+
+input::placeholder {
+	color: #aaa;
 }

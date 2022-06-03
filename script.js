@@ -15,6 +15,7 @@ buttonRestart.style.display = 'none';
 inputScore.style.display = 'none';
 randomQuestion();
 
+
 function final()
 {
 	buttonNext.style.display = 'none';
@@ -193,7 +194,7 @@ function randomQuestion()
 //Declare events in HTML elements
 document.getElementById("start").addEventListener("click", start);
 
-document.getElementById("add").addEventListener("click", addPerson);
+document.getElementById("saveScore").addEventListener("click", addPerson);
 
 buttonNext.addEventListener("click", nextQuestion);
 
