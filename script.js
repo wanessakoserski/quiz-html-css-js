@@ -4,6 +4,7 @@ var screenScore = document.querySelector("nav p span");
 var buttonNext = document.querySelector("#next");
 var buttonRestart = document.querySelector("#restart");
 var returnButtons = document.getElementsByClassName("return");
+var navReturnButton = document.getElementById("returnNav");
 var inputScore = document.querySelector("#score");
 var finalPage = document.getElementById("final-page");
 var container = document.querySelectorAll(".quiz-container");
@@ -31,6 +32,7 @@ function nextQuestion()
 	if (question > 10)
 	{	
 		buttonNext.style.display = 'none';
+		navReturnButton.style.display = 'none';
 		finalPage.style.display = 'block';
 		final();
 	}
@@ -80,6 +82,7 @@ function restart()
 	const questionFirst = document.getElementById("p1");
 	questionFirst.style.display = 'block';
 	buttonNext.style.display = 'block';
+	navReturnButton.style.display = 'block';
 }
 
 
@@ -92,7 +95,7 @@ function verify(event)
 		buttons[i].disabled = true;
 		if (buttons[i].value == "true")
 		{
-				buttons[i].style.backgroundColor = "green";
+			buttons[i].style.backgroundColor = "green";
 		}	
 	}
 		
@@ -116,6 +119,7 @@ function start()
 	buttonNext.style.display = 'block';
 	buttonRestart.style.display = 'block';
 	inputScore.style.display = 'block';
+	navReturnButton.style.display = 'block';
 	question = 0;
 	nextQuestion();
 }
@@ -134,6 +138,8 @@ function returnHome()
 	{
 		container[i].style.display = 'none';
 	}
+	
+	navReturnButton.style.display = 'none';
 }
 
 
@@ -203,4 +209,3 @@ for (let i = 0; i < answerButtons.length; i++)
 {
 	answerButtons[i].addEventListener("click", verify);
 }
-
