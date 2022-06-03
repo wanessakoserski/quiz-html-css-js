@@ -34,7 +34,7 @@ function nextQuestion()
 	{	
 		buttonNext.style.display = 'none';
 		navReturnButton.style.display = 'none';
-		finalPage.style.display = 'block';
+		finalPage.style.display = 'flex';
 		final();
 	}
 	else
@@ -133,7 +133,7 @@ function returnHome()
 	buttonsInitialState();
 	final();
 	finalPage.style.display = 'none';
-	document.getElementById("p0").style.display = 'block';
+	document.getElementById("p0").style.display = 'flex';
 	
 	for (let i = 0; i < container.length; i++)
 	{

@@ -28,14 +28,13 @@ button {
 	padding: 12px;
 	background-color: #ddd;
 	border: 2px solid white;
-	border-radius: 20px;
+	border-radius: 25px;
 }
 
 button:hover {
 	cursor: pointer;
 	transform: scale(1.04);
-	transform: transform 100ms;
-	
+	transform: transform 200ms;
 }
 
 button[disabled]:hover {
@@ -50,17 +49,29 @@ nav {
 	align-items: center;
 	justify-content: space-around;
 	padding: 30px;
-	background-color: #333;
 }
 
 #restart {
 	padding: 15px;
 }
 
+#p0 {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	padding: 50px;	
+}
+
+#final-page {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	padding: 50px;
+}
+
 .quiz-container {
 	padding: 120px;
 	display: none;
-	background-color: black;
 }
 
 .quiz-header {
@@ -86,6 +97,7 @@ nav {
 }
 
 .quiz-answer button {
+	border-radius: 8px;
 	padding: 10px;
 }
 
