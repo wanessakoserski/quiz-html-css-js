@@ -173,6 +173,7 @@ function addPerson()
 	localStorage.setItem("scores", JSON.stringify(scores));	
 
 	const table = document.querySelector("table");
+	let lines = '';
 	
 	// append all array in a html table
 	for (let i = 0; i < players.length; i++)
@@ -187,8 +188,10 @@ function addPerson()
 		line.appendChild(playLine);
 		line.appendChild(scoreLine);
 		
-		table.appendChild(line);
+		lines += line.outerHTML;
 	}
+	
+	table.innerHTML = lines;
 }
 
 
