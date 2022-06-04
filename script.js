@@ -8,12 +8,14 @@ var navReturnButton = document.getElementById("returnNav");
 var inputScore = document.querySelector("#score");
 var finalPage = document.getElementById("final-page");
 var container = document.querySelectorAll(".quiz-container");
+var table = document.querySelector("table");
 
 //Condition when start the page
 buttonNext.style.display = 'none';
 buttonRestart.style.display = 'none';
 inputScore.style.display = 'none';
 randomQuestion();
+makeTable();
 
 
 function final()
@@ -43,13 +45,16 @@ function nextQuestion()
 		questionNext.style.display = 'block';
 		buttonNext.disabled = true;	
 	}
+
+	played = 0;
 }
 
 
-function resetVariable()
+function resetVariable(eachQuestion = 1)
 {
-	question = 1;
+	question = eachQuestion;
 	scoreTotal = 0;
+	played = 0;
 	screenScore.innerText = scoreTotal;
 }
 
@@ -121,14 +126,14 @@ function start()
 	buttonRestart.style.display = 'block';
 	inputScore.style.display = 'block';
 	navReturnButton.style.display = 'block';
-	question = 0;
-	nextQuestion();
+	
+	nextQuestion(0);
 }
 
 
 function returnHome()
 {	
-	resetVariable();
+	resetVariable(0);
 	randomQuestion();
 	buttonsInitialState();
 	final();
@@ -147,33 +152,44 @@ function returnHome()
 var players;
 var scores;
 
-function addPerson()
-{	
+function takeLocalStorage()
+{
 	players = JSON.parse(localStorage.getItem("players"));
 	scores = JSON.parse(localStorage.getItem("scores"));
-	
-	console.log(players);
-	console.log(scores);
-	
+
 	// Verify if there is an array
 	if (players == null)
 	{
 		players = [];
 		scores = [];
 	}
-	
-	
-	// Add username and score
-	let newPlayer = document.getElementById("person").value;
-	players.push(newPlayer);
-	scores.push(scoreTotal);
-	
-	// Send array to local storage
-	localStorage.setItem("players", JSON.stringify(players));
-	localStorage.setItem("scores", JSON.stringify(scores));	
+}
 
-	const table = document.querySelector("table");
+function sendLocalStorage()
+{
+		// Send array to local storage
+		localStorage.setItem("players", JSON.stringify(players));
+		localStorage.setItem("scores", JSON.stringify(scores));	
+}
+
+
+function makeTable() 
+{
+	takeLocalStorage();
+
 	let lines = '';
+
+	let headerPlayer = document.createElement("th");
+	let headerScore = document.createElement("th");
+	let firstLine = document.createElement("tr");
+
+	headerPlayer.innerText = "Jogador";
+	headerScore.innerText = "Score";
+
+	firstLine.appendChild(headerPlayer);
+	firstLine.appendChild(headerScore);
+
+	lines += firstLine;
 	
 	// append all array in a html table
 	for (let i = 0; i < players.length; i++)
@@ -192,6 +208,19 @@ function addPerson()
 	}
 	
 	table.innerHTML = lines;
+}
+
+
+function addPerson()
+{		
+	// Add username and score
+	let newPlayer = document.getElementById("person").value;
+	players.push(newPlayer);
+	scores.push(scoreTotal);
+
+	sendLocalStorage();
+	
+	makeTable();
 }
 
 
@@ -250,6 +279,12 @@ function playAudios(event)
 	{
 		event.target.style = "pointer-events: none";
 	}
+}
+
+
+function showScore()
+{
+
 }
 
 

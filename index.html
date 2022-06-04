@@ -5,15 +5,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Quiz Gênio 2000</title>
 		<link href="style.css" rel="stylesheet" type="text/css" />
-		<!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">-->
 	</head>
 	<body>
 		<h1>Quiz</h1>
 		<nav>
-			<button id="restart">Reiniciar</button>
-			<p id="score"><span>0</span> Score</p>
-			<button id="returnNav" class="return" style="display: none;">Home Page</button>
-			
+
+			<div>
+				<button id="restart">Reiniciar</button>
+				<p id="score"><span>0</span> Score</p>
+				<button id="returnNav" class="return" style="display: none;">Home Page</button>
+			</div>
 			<div id="p0">
 				<button id="start">Começar</button>
 				<button id="">Melhores Scores</button>
@@ -25,16 +26,14 @@
 					<input id="person" type="text" name="name" placeholder="Insira seu nome"> 
 					<button id="saveScore" type="button">Adicionar</button>
 				</div>
-				
-				<div>
-					<table>
-						<tr>
-							<th>Jogador</th>
-							<th>Score</th>
-						</tr>
-					</table>
-				</div>
 			</div>
+
+			<div id="table">
+				<table>
+			
+				</table>
+			</div>
+
 		</nav>
 		
 		
@@ -262,7 +261,6 @@ lêmures eram pedaços de carne</button>
 		
 		
 		<button id="next">Próximo</button>
-		<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>-->
 		<script src="script.js"></script>
 	</body>
 </html>
