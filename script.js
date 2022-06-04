@@ -143,6 +143,7 @@ function returnHome()
 	navReturnButton.style.display = 'none';
 }
 
+
 var players;
 var scores;
 
@@ -151,22 +152,29 @@ function addPerson()
 	players = JSON.parse(localStorage.getItem("players"));
 	scores = JSON.parse(localStorage.getItem("scores"));
 	
+	console.log(players);
+	console.log(scores);
+	
+	// Verify if there is an array
 	if (players == null)
 	{
 		players = [];
 		scores = [];
 	}
 	
+	
+	// Add username and score
 	let newPlayer = document.getElementById("person").value;
 	players.push(newPlayer);
 	scores.push(scoreTotal);
 	
-	localStorage.setItem("username", JSON.stringify(players));
-	localStorage.setItem("username", JSON.stringify(scores));	
+	// Send array to local storage
+	localStorage.setItem("players", JSON.stringify(players));
+	localStorage.setItem("scores", JSON.stringify(scores));	
 
 	const table = document.querySelector("table");
 	
-	
+	// append all array in a html table
 	for (let i = 0; i < players.length; i++)
 	{
 		let playLine = document.createElement("td");
@@ -224,6 +232,7 @@ function randomQuestion()
 	}
 }
 
+
 var played = 0;
 
 function playAudios(event)
@@ -265,6 +274,4 @@ const audios = document.querySelectorAll(".quiz-container audio");
 for (let i = 0; i < audios.length; i++)
 {
 	audios[i].addEventListener("play", playAudios)
-	
-	
 }
