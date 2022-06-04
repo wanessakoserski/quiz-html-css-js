@@ -143,10 +143,44 @@ function returnHome()
 	navReturnButton.style.display = 'none';
 }
 
+var players;
+var scores;
 
 function addPerson()
-{
-	document.getElementById("person");
+{	
+	players = JSON.parse(localStorage.getItem("players"));
+	scores = JSON.parse(localStorage.getItem("scores"));
+	
+	if (players == null)
+	{
+		players = [];
+		scores = [];
+	}
+	
+	let newPlayer = document.getElementById("person").value;
+	players.push(newPlayer);
+	scores.push(scoreTotal);
+	
+	localStorage.setItem("username", JSON.stringify(players));
+	localStorage.setItem("username", JSON.stringify(scores));	
+
+	const table = document.querySelector("table");
+	
+	
+	for (let i = 0; i < players.length; i++)
+	{
+		let playLine = document.createElement("td");
+		let scoreLine = document.createElement("td");
+		let line = document.createElement("tr");
+		
+		playLine.innerText = players[i];
+		scoreLine.innerText = scores[i];
+		
+		line.appendChild(playLine);
+		line.appendChild(scoreLine);
+		
+		table.appendChild(line);
+	}
 }
 
 
@@ -190,6 +224,22 @@ function randomQuestion()
 	}
 }
 
+var played = 0;
+
+function playAudios(event)
+{
+	played++;
+	if (played > 2)
+	{
+		played = 1;
+	}
+	
+	if (played == 2)
+	{
+		event.target.style = "pointer-events: none";
+	}
+}
+
 
 //Declare events in HTML elements
 document.getElementById("start").addEventListener("click", start);
@@ -209,4 +259,12 @@ const answerButtons = document.querySelectorAll(".quiz-answer button");
 for (let i = 0; i < answerButtons.length; i++)
 {
 	answerButtons[i].addEventListener("click", verify);
+}
+
+const audios = document.querySelectorAll(".quiz-container audio");
+for (let i = 0; i < audios.length; i++)
+{
+	audios[i].addEventListener("play", playAudios)
+	
+	
 }
