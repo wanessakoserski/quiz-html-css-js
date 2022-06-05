@@ -14,18 +14,34 @@ body {
 	background-color: rgb(29, 26, 26);
 }
 
+::-webkit-scrollbar {
+	width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+	background: rgb(39, 35, 35); 
+  }
+   
+  ::-webkit-scrollbar-thumb {
+	background: rgba(255, 170, 177, 0.89); 
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+	background: rgb(216, 126, 134, 0.89); 
+  }
+
 h1 {
 	text-align: center;
 	padding: 45px;
 	margin-top: 3rem;
 	color: #fff;
-	font-size: 5.4rem;
+	font-size: 5.7rem;
+	text-shadow: 1.5px 1.5px rgb(255, 105, 117);
 }
 
 button {
 	font-size: 20px;
 	padding: 13px;
-	background-color: #ddd;
 	border: 2px solid white;
 	border-radius: 22px;
 }
@@ -79,6 +95,13 @@ nav {
 
 #p0 button{	
 	width: 450px;
+	font-size: 23px;
+	background-color: rgb(252, 135, 145);
+	color: white;
+}
+
+#p0 #melhoresScores{
+	background-color: rgb(221, 58, 72);
 }
 
 #final-page {
@@ -93,16 +116,31 @@ nav {
 }
 
 #displayTable {
-	padding: 10px;
-	background-color: black;
+	color: black;
+	padding: 15px;
+	border-radius: 15px;
+	background-color: #b1acac;
+}
+
+#displayTable table {
+	width: 480px;
+	text-align: center;
 }
 
 #displayTable th {
+	color: white;
+	width: 50%;
 	padding: 20px;
+	border-width: 3px 2px 3px 3px;
+	border-style: solid;
+	border-color: white;
+	background-color: rgb(39, 35, 35);
 }
 
 #displayTable td {
-	padding: 20px;
+	padding: 12px;
+	border-width: 0 0 1px 0;
+	border-style: solid;
 }
 
 .quiz-container {
@@ -111,24 +149,33 @@ nav {
 }
 
 .quiz-header {
-	color: pink;
-	padding: 50px;
-}
-
-.quiz-header h3 {
-	font-size: 2rem;
+	background-color: rgb(39, 35, 35);
+	border-radius: 30px 30px 0 0;
+	color: rgb(255, 170, 177);
+	margin-top: 30px;
+	padding: 40px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .quiz-header p {
-	margin: 30px 0px 50px;
+	margin: 30px 0 0 0;
+	font-size: 1.3rem;
+}
+
+.quiz-header audio {
+	border: 5px solid rgb(255, 170, 177);
+	border-radius: 60px;
 }
 
 .quiz-answer {
 	display: flex;
 	flex-direction: column;
 	gap: 15px;
-	background-color: pink;
+	background-color: rgb(255, 170, 177);
 	padding: 50px;
+	border-radius: 0 0 30px 30px;
 }
 
 .quiz-answer button {
@@ -137,9 +184,21 @@ nav {
 }
 
 #next {
-	padding: 15px;
+	padding: 10px;
 	float: right;
 	margin: 0 70px 50px 0;
+	box-shadow: 
+				0 0 0 1px rgb(255, 170, 177),
+				.1rem .35rem 0 0 rgba(255, 170, 177, 0.6);
+	transform: box-shadow 1s ease, transform 1s ease;
+}
+
+#next:hover {
+	box-shadow: 
+				0 0 0 1px rgb(255, 170, 177),
+				0 0 0 0 rgba(255, 170, 177, 0.6);
+	box-shadow: inset .2rem .2rem .2rem rgba(255, 170, 177, 0.6);
+	transform: translate(1px, 1px);
 }
 
 input {

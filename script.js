@@ -89,7 +89,8 @@ function buttonsInitialState()
 	
 	for (let i = 0; i < allButtons.length; i++)
 	{
-		allButtons[i].style.backgroundColor = "white";
+		allButtons[i].style.backgroundColor = "#ddd";
+		allButtons[i].style.borderColor = "white";
 		allButtons[i].disabled = false;
 	}
 }
@@ -125,18 +126,21 @@ function verify(event)
 		buttons[i].disabled = true;
 		if (buttons[i].value == "true")
 		{
-			buttons[i].style.backgroundColor = "green";
+			buttons[i].style.backgroundColor = "#78c178";
+			buttons[i].style.borderColor = "green";
 		}	
 	}
 		
 	if (event.target.value == "true")
 	{
-		scoreTotal += 20;
+		let score = Math.floor(Math.random() * 20 + 15);
+		scoreTotal += score;
 		rights++;
 	}
 	else 
 	{		
-		event.target.style.backgroundColor = "red";
+		event.target.style.backgroundColor = "#e55d5d";
+		event.target.style.borderColor = "red";
 		wrongs++;
 	}
 
