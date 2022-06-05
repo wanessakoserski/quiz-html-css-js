@@ -1,6 +1,11 @@
 var scoreTotal = 0;
 var question = 0;
+var rights = 0;
+var wrongs = 0;
 var screenScore = document.querySelector("nav p span");
+var screenRight = document.querySelector("#right");
+var screenWrong = document.querySelector("#wrong");
+var finalScore = document.querySelector("#finalScore");
 var buttonNext = document.querySelector("#next");
 var buttonRestart = document.querySelector("#restart");
 var returnButtons = document.getElementsByClassName("return");
@@ -26,6 +31,9 @@ function final()
 	buttonNext.style.display = 'none';
 	buttonRestart.style.display = 'none';
 	inputScore.style.display = 'none';
+	finalScore.innerText = scoreTotal;
+	screenRight.innerText = rights;
+	screenWrong.innerText = wrongs;
 }
 
 
@@ -66,8 +74,12 @@ function resetVariable(eachQuestion = 1)
 {
 	question = eachQuestion;
 	scoreTotal = 0;
+	rights = 0;
+	wrongs = 0;
 	played = 0;
 	screenScore.innerText = scoreTotal;
+	screenRight.innertText = rights;
+	screenWrong.innerText = wrongs;
 }
 
 
@@ -120,10 +132,12 @@ function verify(event)
 	if (event.target.value == "true")
 	{
 		scoreTotal += 20;
+		rights++;
 	}
 	else 
 	{		
 		event.target.style.backgroundColor = "red";
+		wrongs++;
 	}
 
 	buttonNext.disabled = false;
@@ -202,7 +216,7 @@ function makeTable()
 		let recordPlayer = '';
 		for (let i = 0; i < scores.length; i++)
 		{		
-			if (scores[i] > recordScore)
+			if (scores[i] >= recordScore)
 			{
 				if(!(highPlayer.includes(players[i])))
 				{
