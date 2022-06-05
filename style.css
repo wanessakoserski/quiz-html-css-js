@@ -96,6 +96,7 @@ nav {
 #p0 button{	
 	width: 450px;
 	font-size: 23px;
+	border-width: 1.9px;
 	background-color: rgb(252, 135, 145);
 	color: white;
 }
@@ -108,7 +109,34 @@ nav {
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
-	padding: 50px;
+	padding: 15px 50px 50px 50px;
+}
+
+#final-page p {
+	text-align: center;
+	font-size: 24px;
+}
+
+#final-page p span {
+	font-size: 30px;
+}
+
+#final-page #finalScore {
+	font-size: 45px;
+	color: pink;
+	text-shadow: 0.7px 0.7px rgb(221, 58, 72);
+}
+
+#final-page #right {
+	color: #78c178;
+}
+
+#final-page #wrong {
+	color: #e55d5d;
+}
+
+#final-page .return {
+	margin-top: 30px;
 }
 
 #person {
@@ -181,6 +209,10 @@ nav {
 .quiz-answer button {
 	border-radius: 8px;
 	padding: 10px;
+}
+
+.quiz-answer button:disabled {
+    background-color: #EFEFEF;
 }
 
 #next {

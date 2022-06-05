@@ -89,7 +89,7 @@ function buttonsInitialState()
 	
 	for (let i = 0; i < allButtons.length; i++)
 	{
-		allButtons[i].style.backgroundColor = "#ddd";
+		allButtons[i].style.backgroundColor = "#EFEFEF";
 		allButtons[i].style.borderColor = "white";
 		allButtons[i].disabled = false;
 	}
