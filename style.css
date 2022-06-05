@@ -17,14 +17,14 @@ body {
 h1 {
 	text-align: center;
 	padding: 45px;
-	margin: 2rem;
+	margin-top: 3rem;
 	color: #fff;
 	font-size: 5.4rem;
 }
 
 button {
 	font-size: 20px;
-	padding: 12px;
+	padding: 13px;
 	background-color: #ddd;
 	border: 2px solid white;
 	border-radius: 22px;
@@ -46,7 +46,6 @@ nav {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: space-around;
 	width: 100%;
 	padding: 30px;
 }
@@ -55,17 +54,19 @@ nav {
 {
 	display: flex;
 	flex-direction: row;
-	gap: 20px;
 	justify-content: space-between;
 	align-items: center;
-	padding: 30px;
+	width: 93%;
+	gap: 30;
 }
 
-#main-nav-buttons
-{
-	display: flex;
-	flex-direction: row;
-	gap: 20px;
+#main-nav button {
+	width: 140px;
+	padding: 5px;
+}
+
+#main-nav p {
+	font-size: 22px;
 }
 
 #p0 {
@@ -73,7 +74,7 @@ nav {
 	flex-direction: column;
 	gap: 20px;
 	padding: 50px;
-	margin: 10px;	
+	margin: 90px 90px 0 90px;	
 }
 
 #p0 button{	
@@ -83,7 +84,7 @@ nav {
 #final-page {
 	display: flex;
 	flex-direction: column;
-	gap: 15px;
+	gap: 20px;
 	padding: 50px;
 }
 
@@ -105,7 +106,7 @@ nav {
 }
 
 .quiz-container {
-	padding: 120px;
+	margin: 10px 70px 30px 70px;
 	display: none;
 }
 
@@ -138,16 +139,16 @@ nav {
 #next {
 	padding: 15px;
 	float: right;
-	margin: 0 50px 20px 0;
+	margin: 0 70px 50px 0;
 }
 
 input {
-	margin: 1rem;
+	margin: 0.2rem;
 	width: 20rem;
-	padding: 1.5rem;
-	font-size: 1.8rem;
+	padding: 1rem;
+	font-size: 1.5rem;
 	border: none;
-	box-shadow: 0 0.1rem 1.4rem 0 gray;
+	box-shadow: 0 0.1rem 1.4rem 0 rgb(88, 88, 88);
 }
 
 input::placeholder {
