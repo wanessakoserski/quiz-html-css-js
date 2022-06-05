@@ -10,25 +10,29 @@
 		<h1>Quiz</h1>
 		<nav>
 
-			<div>
-				<button id="restart">Reiniciar</button>
-				<p id="score"><span>0</span> Score</p>
-				<button id="returnNav" class="return" style="display: none;">Home Page</button>
+			<div id="main-nav">
+				<div>
+					<p id="score"><span>0</span> Score</p>
+				</div>
+				<div id="main-nav-buttons">
+					<button id="restart">Reiniciar</button>
+					<button id="returnNav" class="return" style="display: none;">Home Page</button>
+				</div>	
 			</div>
 			<div id="p0">
 				<button id="start">Começar</button>
-				<button id="">Melhores Scores</button>
+				<button id="melhoresScores">Melhores Scores</button>
 			</div>
 			
 			<div id="final-page" style="display: none;">
 				<button class="return">Voltar para página inicial</button>
 				<div>
 					<input id="person" type="text" name="name" placeholder="Insira seu nome"> 
-					<button id="saveScore" type="button">Adicionar</button>
+					<button id="saveScore" type="button" disabled>Adicionar</button>
 				</div>
 			</div>
 
-			<div id="table">
+			<div id="displayTable" style="display: none;">
 				<table>
 			
 				</table>
@@ -40,12 +44,12 @@
 		
 		<div class="quiz-container">
 			<div class="quiz-header">
-				<h3>
-					<audio autoplay="autoplay" controls="controls">
-						<source src="audios/eu-sou-um-ogro.mp3" type="audio/mp3" />
-						Deu algo errado :(
-					</audio>
-				</h3>
+
+				<audio autoplay="autoplay" controls="controls">
+					<source src="audios/eu-sou-um-ogro.mp3" type="audio/mp3" />
+					Deu algo errado :(
+				</audio>
+				
 				<p>Para quem o Shrek fez o urro?</p>
 			</div>
 			<div class="quiz-answer">
@@ -58,12 +62,12 @@
 		
 		<div class="quiz-container">
 			<div class="quiz-header">
-				<h3>
-					<audio autoplay="autoplay" controls="controls">
-						<source src="audios/toy-story-cena-macabra.mp3" type="audio/mp3" />
-						Deu algo errado :(
-					</audio>
-				</h3>
+				
+				<audio autoplay="autoplay" controls="controls">
+					<source src="audios/toy-story-cena-macabra.mp3" type="audio/mp3" />
+					Deu algo errado :(
+				</audio>
+				
 				<p>O que vai acontecer nessa cena?</p>
 			</div>
 			<div class="quiz-answer">
@@ -79,12 +83,12 @@ ser lançado</button>
 		
 		<div class="quiz-container">
 			<div class="quiz-header">
-				<h3>
-					<audio autoplay="autoplay" controls="controls">
-						<source src="audios/aparece-no-armario-monstros.mp3" type="audio/mp3" />
-						Deu algo errado :(
-					</audio>
-				</h3>
+				
+				<audio autoplay="autoplay" controls="controls">
+					<source src="audios/aparece-no-armario-monstros.mp3" type="audio/mp3" />
+					Deu algo errado :(
+				</audio>
+				
 				<p>O que Mike Wazowski diz depois?</p>
 			</div>
 			<div class="quiz-answer">
@@ -97,12 +101,12 @@ ser lançado</button>
 		
 		<div class="quiz-container">
 			<div class="quiz-header">
-				<h3>
-					<audio autoplay="autoplay" controls="controls">
-						<source src="audios/alex-fica-louco.mp3" type="audio/mp3" />
-						Deu algo errado :(
-					</audio>
-				</h3>
+				
+				<audio autoplay="autoplay" controls="controls">
+					<source src="audios/alex-fica-louco.mp3" type="audio/mp3" />
+					Deu algo errado :(
+				</audio>
+				
 				<p>O que acontece depois dessa cena?</p>
 			</div>
 			<div class="quiz-answer">
@@ -116,12 +120,12 @@ lêmures eram pedaços de carne</button>
 		
 		<div class="quiz-container">
 			<div class="quiz-header">
-				<h3>
-					<audio autoplay="autoplay" controls="controls">
-						<source src="audios/os-padrinhos-magicos.mp3" type="audio/mp3" />
-						Deu algo errado :(
-					</audio>
-				</h3>
+			
+				<audio autoplay="autoplay" controls="controls">
+					<source src="audios/os-padrinhos-magicos.mp3" type="audio/mp3" />
+					Deu algo errado :(
+				</audio>
+				
 				<p>Continue a música</p>
 			</div>
 			<div class="quiz-answer">
@@ -142,12 +146,12 @@ lêmures eram pedaços de carne</button>
 		
 		<div class="quiz-container">
 			<div class="quiz-header">
-				<h3>
-					<audio autoplay="autoplay" controls="controls">
-						<source src="audios/portal-still-alive.mp3" type="audio/mp3" />
-						Deu algo errado :(
-					</audio>
-				</h3>
+			
+				<audio autoplay="autoplay" controls="controls">
+					<source src="audios/portal-still-alive.mp3" type="audio/mp3" />
+					Deu algo errado :(
+				</audio>
+				
 				<p>Continue a música</p>
 			</div>
 			<div class="quiz-answer">
@@ -160,12 +164,12 @@ lêmures eram pedaços de carne</button>
 		
 		<div class="quiz-container">
 			<div class="quiz-header">
-				<h3>
-					<audio autoplay="autoplay" controls="controls">
-						<source src="audios/papo-furado.mp3" type="audio/mp3" />
-						Deu algo errado :(
-					</audio>
-				</h3>
+				
+				<audio autoplay="autoplay" controls="controls">
+					<source src="audios/papo-furado.mp3" type="audio/mp3" />
+					Deu algo errado :(
+				</audio>
+				
 				<p>O que o Po diz a seguir?</p>
 			</div>
 			<div class="quiz-answer">
@@ -178,12 +182,12 @@ lêmures eram pedaços de carne</button>
 		
 		<div class="quiz-container">
 			<div class="quiz-header">
-				<h3>
-					<audio autoplay="autoplay" controls="controls">
-						<source src="audios/i-am-a-believer.mp3" type="audio/mp3" />
-						Deu algo errado :(
-					</audio>
-				</h3>
+			
+				<audio autoplay="autoplay" controls="controls">
+					<source src="audios/i-am-a-believer.mp3" type="audio/mp3" />
+					Deu algo errado :(
+				</audio>
+				
 				<p>De qual filme é essa música?</p>
 			</div>
 			<div class="quiz-answer">

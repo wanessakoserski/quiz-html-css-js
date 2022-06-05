@@ -9,6 +9,9 @@ var inputScore = document.querySelector("#score");
 var finalPage = document.getElementById("final-page");
 var container = document.querySelectorAll(".quiz-container");
 var table = document.querySelector("table");
+var displayTable = document.querySelector("#displayTable");
+var newPlayer = document.getElementById("person");
+var saveScore = document.getElementById("saveScore");
 
 //Condition when start the page
 buttonNext.style.display = 'none';
@@ -28,7 +31,16 @@ function final()
 
 function nextQuestion() 
 {	
+
+
 	let questionNow = document.getElementById("p" + question);
+
+	let audio = questionNow.getElementsByTagName('audio');
+	if (audio.length > 0)
+	{
+		audio[0].pause();
+	}
+
 	questionNow.style.display = 'none';	
 	
 	question++;
@@ -110,8 +122,7 @@ function verify(event)
 		scoreTotal += 20;
 	}
 	else 
-	{
-		
+	{		
 		event.target.style.backgroundColor = "red";
 	}
 
@@ -126,6 +137,10 @@ function start()
 	buttonRestart.style.display = 'block';
 	inputScore.style.display = 'block';
 	navReturnButton.style.display = 'block';
+	displayTable.style.display = 'none';
+	newPlayer.disabled = false;
+	newPlayer.value = '';
+	newPlayer.placeholder = "Insira seu nome";
 	
 	nextQuestion(0);
 }
@@ -138,6 +153,7 @@ function returnHome()
 	buttonsInitialState();
 	final();
 	finalPage.style.display = 'none';
+	displayTable.style.display = 'none';
 	document.getElementById("p0").style.display = 'flex';
 	
 	for (let i = 0; i < container.length; i++)
@@ -177,6 +193,26 @@ function makeTable()
 {
 	takeLocalStorage();
 
+	highPlayer = new Array();
+	highScore = new Array();
+
+	for (let i = 0; i < 10; i ++)
+	{
+		for (let i = 0; i < scores.length; i++)
+		{
+			let record = 0
+			if (scores[i] > record)
+			{
+				if(!(highScore.includes(scores[i])))
+				{
+					record = scores[i]
+				}
+			}
+		}
+		highScore.push(record);
+		// colocar o player e dar um output deposi 
+	}
+
 	let lines = '';
 
 	let headerPlayer = document.createElement("th");
@@ -189,10 +225,10 @@ function makeTable()
 	firstLine.appendChild(headerPlayer);
 	firstLine.appendChild(headerScore);
 
-	lines += firstLine;
+	lines += firstLine.outerHTML;
 	
 	// append all array in a html table
-	for (let i = 0; i < players.length; i++)
+	for (let i = 0; i < 10; i++)
 	{
 		let playLine = document.createElement("td");
 		let scoreLine = document.createElement("td");
@@ -211,16 +247,33 @@ function makeTable()
 }
 
 
-function addPerson()
+function enableButton(event)
+{
+	if (event.keyCode == '13')
+	{
+		addPerson();
+	}
+	if (event.target.value != '')
+	{
+		saveScore.disabled = false;
+	}
+}
+
+
+function addPerson(event)
 {		
 	// Add username and score
-	let newPlayer = document.getElementById("person").value;
-	players.push(newPlayer);
+	players.push(newPlayer.value);
 	scores.push(scoreTotal);
 
 	sendLocalStorage();
 	
 	makeTable();
+	displayTable.style.display = 'block';
+	saveScore.disabled = true;
+	newPlayer.value = '';
+	newPlayer.placeholder = "Obrigada por jogar! <3";
+	newPlayer.disabled = true;
 }
 
 
@@ -284,18 +337,22 @@ function playAudios(event)
 
 function showScore()
 {
-
+	displayTable.style.display = 'block';
 }
 
 
 //Declare events in HTML elements
 document.getElementById("start").addEventListener("click", start);
 
-document.getElementById("saveScore").addEventListener("click", addPerson);
+document.getElementById("melhoresScores").addEventListener("click", showScore)
 
 buttonNext.addEventListener("click", nextQuestion);
 
 buttonRestart.addEventListener("click", restart);
+
+newPlayer.addEventListener("keyup", enableButton);
+
+saveScore.addEventListener("click", addPerson);
 
 for (let i = 0; i < returnButtons.length; i++)
 {

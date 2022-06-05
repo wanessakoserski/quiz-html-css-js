@@ -51,8 +51,21 @@ nav {
 	padding: 30px;
 }
 
-#restart {
-	padding: 15px;
+#main-nav
+{
+	display: flex;
+	flex-direction: row;
+	gap: 30px;
+	justify-content: space-between;
+	align-items: center;
+	padding: 30px;
+}
+
+#main-nav-buttons
+{
+	display: flex;
+	flex-direction: row;
+	gap:20px;
 }
 
 #p0 {
@@ -69,16 +82,20 @@ nav {
 	padding: 50px;
 }
 
-#table {
+#person {
+	width: 360px;
+}
+
+#displayTable {
 	padding: 10px;
 	background-color: black;
 }
 
-#table th {
+#displayTable th {
 	padding: 20px;
 }
 
-#table td {
+#displayTable td {
 	padding: 20px;
 }
 
