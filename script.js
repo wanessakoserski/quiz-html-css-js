@@ -254,7 +254,7 @@ function makeTable()
 
 function enableButton(event)
 {
-	if (event.keyCode == '13')
+	if (event.keyCode == '13' && event.target.value != '')
 	{
 		addPerson();
 	}
