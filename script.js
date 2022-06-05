@@ -193,24 +193,26 @@ function makeTable()
 {
 	takeLocalStorage();
 
-	highPlayer = new Array();
-	highScore = new Array();
+	let highPlayer = new Array();
+	let highScore = new Array();
 
 	for (let i = 0; i < 10; i ++)
 	{
+		let recordScore = 0;
+		let recordPlayer = '';
 		for (let i = 0; i < scores.length; i++)
-		{
-			let record = 0
-			if (scores[i] > record)
+		{		
+			if (scores[i] > recordScore)
 			{
-				if(!(highScore.includes(scores[i])))
+				if(!(highPlayer.includes(players[i])))
 				{
-					record = scores[i]
+					recordScore = scores[i];
+					recordPlayer = players[i];
 				}
 			}
 		}
-		highScore.push(record);
-		// colocar o player e dar um output deposi 
+		highScore.push(recordScore);
+		highPlayer.push(recordPlayer);
 	}
 
 	let lines = '';
@@ -228,19 +230,22 @@ function makeTable()
 	lines += firstLine.outerHTML;
 	
 	// append all array in a html table
-	for (let i = 0; i < 10; i++)
-	{
-		let playLine = document.createElement("td");
-		let scoreLine = document.createElement("td");
-		let line = document.createElement("tr");
-		
-		playLine.innerText = players[i];
-		scoreLine.innerText = scores[i];
-		
-		line.appendChild(playLine);
-		line.appendChild(scoreLine);
-		
-		lines += line.outerHTML;
+	for (let i = 0; i < highPlayer.length; i++)
+	{	
+		if (highPlayer[i] != '')
+		{
+			let playLine = document.createElement("td");
+			let scoreLine = document.createElement("td");
+			let line = document.createElement("tr");
+			
+			playLine.innerText = highPlayer[i];
+			scoreLine.innerText = highScore[i];
+			
+			line.appendChild(playLine);
+			line.appendChild(scoreLine);
+			
+			lines += line.outerHTML;
+		}
 	}
 	
 	table.innerHTML = lines;
