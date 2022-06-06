@@ -220,6 +220,7 @@ nav {
 	border-radius: 6px;
 	padding: 5px;
 	background-color: white;
+	height: 320px;
 }
 
 .quiz-answer {

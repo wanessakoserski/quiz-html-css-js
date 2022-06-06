@@ -60,10 +60,7 @@ function nextQuestion()
 {	
 
 	let questionNow = document.getElementById("p" + question);
-	/*
-	let audio = questionNow.getElementsByTagName('audio');
-	let video = questionNow.getElementsByTagName('video');
-	*/
+	
 	pauseAudioVideo();
 
 	questionNow.style.display = 'none';	
@@ -154,20 +151,12 @@ function verify(event)
 	{
 		scoreTotal += 25;
 		rights++;
-		/*
-		const audioCorrect = document.querySelector("#correctSound");
-		audioCorrect.play();
-		*/
 	}
 	else 
 	{		
 		event.target.style.backgroundColor = "#e55d5d";
 		event.target.style.borderColor = "red";
 		wrongs++;
-		/*
-		const audioWrong = document.querySelector("#wrongSound");
-		audioWrong.play();
-		*/
 	}
 
 	buttonNext.disabled = false;
@@ -455,11 +444,3 @@ for (let i = 0; i < audios.length; i++)
 {
 	audios[i].addEventListener("play", playAudios)
 }
-
-/*
-const anyButton = document.querySelectorAll("button");
-for (let i = 0; i < anyButton.length; i++)
-{
-	anyButton[i].addEventListener("click", buttonEffect);
-}
-*/
