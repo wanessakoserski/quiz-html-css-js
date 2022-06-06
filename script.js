@@ -188,7 +188,7 @@ function start()
 	
 	nextQuestion(0);
 
-	alert("Os áudios deste Quiz podem ser clicados apenas 2x");
+	alert("Os áudios só podem ser acionados 2x");
 }
 
 
