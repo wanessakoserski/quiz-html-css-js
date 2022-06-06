@@ -36,18 +36,35 @@ function final()
 	screenWrong.innerText = wrongs;
 }
 
+function pauseAudioVideo(audio = document.querySelectorAll('audio'), video = document.querySelectorAll('video'))
+{
+	if (audio.length > 0)
+	{
+		for (let i = 0; i < audio.length; i++)
+		{
+			audio[i].pause();
+		}
+	}
+
+	if (video.length > 0)
+	{
+		for (let i = 0; i < video.length; i++)
+		{
+			video[i].pause();
+		}
+	}
+
+}
 
 function nextQuestion() 
 {	
 
-
 	let questionNow = document.getElementById("p" + question);
-
+	/*
 	let audio = questionNow.getElementsByTagName('audio');
-	if (audio.length > 0)
-	{
-		audio[0].pause();
-	}
+	let video = questionNow.getElementsByTagName('video');
+	*/
+	pauseAudioVideo();
 
 	questionNow.style.display = 'none';	
 	
@@ -107,6 +124,7 @@ function restart()
 	resetVariable();	
 	buttonsInitialState();
 	randomQuestion();
+	pauseAudioVideo();
 	
 	
 	//Return to the first question
@@ -180,6 +198,8 @@ function returnHome()
 	}
 	
 	navReturnButton.style.display = 'none';
+
+	pauseAudioVideo();
 }
 
 
@@ -357,10 +377,20 @@ function playAudios(event)
 	}
 }
 
+var showOrNot = true;
 
 function showScore()
 {
-	displayTable.style.display = 'block';
+	if (showScore)
+	{
+		displayTable.style.display = 'block';
+		showScore = false;
+	}
+	else
+	{
+		displayTable.style.display = 'none';
+		showScore = true;
+	}
 }
 
 

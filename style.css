@@ -197,6 +197,11 @@ nav {
 	border-radius: 60px;
 }
 
+.quiz-header video {
+	border: 5px solid rgb(255, 170, 177);
+	border-radius: 30px;
+}
+
 .quiz-answer {
 	display: flex;
 	flex-direction: column;
