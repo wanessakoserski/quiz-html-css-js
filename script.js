@@ -137,6 +137,7 @@ function restart()
 
 function verify(event)
 {
+	pauseAudioVideo();
 	//Select only current page buttons
 	const buttons = document.querySelectorAll("#p" + question + " .quiz-answer button");
 	for (let i = 0; i < buttons.length; i++)
@@ -153,12 +154,20 @@ function verify(event)
 	{
 		scoreTotal += 25;
 		rights++;
+		/*
+		const audioCorrect = document.querySelector("#correctSound");
+		audioCorrect.play();
+		*/
 	}
 	else 
 	{		
 		event.target.style.backgroundColor = "#e55d5d";
 		event.target.style.borderColor = "red";
 		wrongs++;
+		/*
+		const audioWrong = document.querySelector("#wrongSound");
+		audioWrong.play();
+		*/
 	}
 
 	buttonNext.disabled = false;
@@ -178,6 +187,8 @@ function start()
 	newPlayer.placeholder = "Insira seu nome";
 	
 	nextQuestion(0);
+
+	alert("Os áudios deste Quiz podem ser clicados apenas 2x");
 }
 
 
@@ -189,6 +200,7 @@ function returnHome()
 	final();
 	finalPage.style.display = 'none';
 	displayTable.style.display = 'none';
+	confettiCanvas.classList.remove('active');
 	document.getElementById("p0").style.display = 'flex';
 	
 	for (let i = 0; i < container.length; i++)
@@ -288,6 +300,16 @@ function makeTable()
 	table.innerHTML = lines;
 }
 
+let confettiCanvas = document.querySelector('#my-canvas');
+var confettiSettings = { target: 'my-canvas' };
+var confetti = new ConfettiGenerator(confettiSettings);
+confetti.render();
+
+function confettiEffect()
+{
+	confettiCanvas.classList.add('active');
+}
+
 
 function enableButton(event)
 {
@@ -316,6 +338,11 @@ function addPerson(event)
 	newPlayer.value = '';
 	newPlayer.placeholder = "Obrigada por jogar! <3";
 	newPlayer.disabled = true;
+
+	const audioWoaw = document.querySelector("#woawSound");
+	audioWoaw.play();
+
+	confettiEffect();
 }
 
 
@@ -392,6 +419,12 @@ function showScore()
 	}
 }
 
+function buttonEffect()
+{
+	const audioButton = document.querySelector("#buttonSound");
+	audioButton.play();
+}
+
 
 //Declare events in HTML elements
 document.getElementById("start").addEventListener("click", start);
@@ -422,3 +455,11 @@ for (let i = 0; i < audios.length; i++)
 {
 	audios[i].addEventListener("play", playAudios)
 }
+
+/*
+const anyButton = document.querySelectorAll("button");
+for (let i = 0; i < anyButton.length; i++)
+{
+	anyButton[i].addEventListener("click", buttonEffect);
+}
+*/

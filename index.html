@@ -22,6 +22,7 @@
 			</div>
 			
 			<div id="final-page" style="display: none;">
+				
 				<p>Seu score:  <span id="finalScore">0</span> Score</p>
 				<p><span id="right">0</span> Acertos e <span id="wrong">0</span> Erros</p>
 				<button class="return">Voltar para página inicial</button>
@@ -29,6 +30,7 @@
 					<input id="person" type="text" name="name" placeholder="Insira seu nome"> 
 					<button id="saveScore" type="button" disabled>Adicionar</button>
 				</div>
+				<canvas id="my-canvas"></canvas>
 			</div>
 
 			<div id="displayTable" style="display: none;">
@@ -470,10 +472,10 @@ lêmures eram pedaços de carne</button>
 				<p>Quem é esse personagem?</p>
 			</div>
 			<div class="quiz-answer">
-				<button value="true">Usinho Pooh</button>
+				<button>Usinho Pooh</button>
 				<button>Gleipnir</button>
 				<button>Rilakkuma</button>
-				<button>Monokuma</button>
+				<button value="true">Monokuma</button>
 			</div>
 		</div>
 
@@ -522,7 +524,22 @@ lêmures eram pedaços de carne</button>
 			</div>
 		</div>
 
+		<audio id="correctSound" autoplay="autoplay">
+			<source src="audios/correct.mp3" type="audio/mp3" />
+		</audio>
+		<audio id="wrongSound" autoplay="autoplay">
+			<source src="audios/wrong.mp3" type="audio/mp3" />
+		</audio>
+		<audio id="woawSound" autoplay="autoplay">
+			<source src="audios/waow.mp3" type="audio/mp3" />
+		</audio>
+		<audio id="buttonSound" autoplay="autoplay">
+			<source src="audios/button_effect.mp3" type="audio/mp3" />
+		</audio>
+
 		<button id="next">Próximo</button>
+
+		<script src="extension/index.min.js"></script>
 		<script src="script.js"></script>
 	</body>
 </html>
