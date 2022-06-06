@@ -151,8 +151,7 @@ function verify(event)
 		
 	if (event.target.value == "true")
 	{
-		let score = Math.floor(Math.random() * 20 + 15);
-		scoreTotal += score;
+		scoreTotal += 25;
 		rights++;
 	}
 	else 

@@ -49,7 +49,6 @@ button {
 button:hover {
 	cursor: pointer;
 	transform: scale(1.04);
-	transform: transform 200ms;
 }
 
 button[disabled]:hover {
@@ -73,7 +72,6 @@ nav {
 	justify-content: space-between;
 	align-items: center;
 	width: 93%;
-	gap: 30;
 }
 
 #main-nav button {
@@ -202,6 +200,13 @@ nav {
 	border-radius: 30px;
 }
 
+.quiz-header img {
+	border: 5px solid rgb(255, 170, 177);
+	border-radius: 6px;
+	padding: 5px;
+	background-color: white;
+}
+
 .quiz-answer {
 	display: flex;
 	flex-direction: column;
@@ -227,7 +232,6 @@ nav {
 	box-shadow: 
 				0 0 0 1px rgb(255, 170, 177),
 				.1rem .35rem 0 0 rgba(255, 170, 177, 0.6);
-	transform: box-shadow 1s ease, transform 1s ease;
 }
 
 #next:hover {
