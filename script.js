@@ -417,9 +417,3 @@ for (let i = 0; i < answerButtons.length; i++)
 {
 	answerButtons[i].addEventListener("click", verify);
 }
-
-const audios = document.querySelectorAll(".quiz-container audio");
-for (let i = 0; i < audios.length; i++)
-{
-	audios[i].addEventListener("play", playAudios)
-}
