@@ -79,8 +79,6 @@ function nextQuestion()
 		questionNext.style.display = 'block';
 		buttonNext.disabled = true;	
 	}
-
-	played = 0;
 }
 
 
@@ -90,7 +88,6 @@ function resetVariable(eachQuestion = 1)
 	scoreTotal = 0;
 	rights = 0;
 	wrongs = 0;
-	played = 0;
 	screenScore.innerText = scoreTotal;
 	screenRight.innertText = rights;
 	screenWrong.innerText = wrongs;
@@ -176,8 +173,6 @@ function start()
 	newPlayer.placeholder = "Insira seu nome";
 	
 	nextQuestion(0);
-
-	alert("Os áudios só podem ser acionados 2x");
 }
 
 
@@ -375,22 +370,6 @@ function randomQuestion()
 	}
 }
 
-
-var played = 0;
-
-function playAudios(event)
-{
-	played++;
-	if (played > 2)
-	{
-		played = 1;
-	}
-	
-	if (played == 2)
-	{
-		event.target.style = "pointer-events: none";
-	}
-}
 
 var showOrNot = true;
 
