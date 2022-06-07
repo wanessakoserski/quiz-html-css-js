@@ -14,8 +14,7 @@ Você pode baixá-lo ou entrar na [página gerada pelo Github](https://wanessako
 
 ## :joystick: Funcionalidades do projeto
 
-<img src="images/quiz1.gif" width="395" />
-<img src="images/quiz2.gif" width="395" />
+<img src="images/quiz1.gif" width="395" /> <img src="images/quiz2.gif" width="395" />
 
 - `Começar`: Randomizar as 10 perguntas e começar o jogo;
 - `Melhores Scores`: Abrir e fechar a tabela dos 10 melhores jogadores até o momento;
